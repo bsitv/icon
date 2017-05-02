@@ -1,0 +1,109 @@
+
+<head>
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico" />
+    <title>Icon</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">	
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<script src="js/jquery.min.js"></script>
+	<script src="js/tether.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+
+
+<html>
+    
+    <div class="container-fluid text-center top-buffer">
+        <canvas> </canvas>
+    </div>
+
+    <div class="container-fluid text-center top-buffer">
+        <div class="cc-selector">
+        <input id="icon1" type="radio" name="league" value="icon1" onclick="selectIcon(1);"  checked="checked" />
+        <label class="drinkcard-cc icon1" for="icon1"></label>
+        
+        <input id="icon2" type="radio" name="league" value="icon2" onclick="selectIcon(2);"/>
+        <label class="drinkcard-cc icon2" for="icon2"></label>
+        
+        <input id="icon3" type="radio" name="league" value="icon3" onclick="selectIcon(3);"/>
+        <label class="drinkcard-cc icon3" for="icon3"></label>
+        
+        </div>
+    </div>
+    
+    <div class="container-fluid text-center top-buffer" >
+        <input id="iconText" class="form-control" placeholder="텍스트를 입력..." type="text" onkeyup='updateCanvas(event)'>
+    </div>
+    
+    <div class="container-fluid text-center top-buffer">
+        <a href="#" class="btn btn-info" id ="download">다운로드</a>    
+    </div>
+    
+     <div class="container-fluid text-center top-buffer">
+        <a href="http://www.naver.com">
+            <img src="img/banner1.png" class="rounded top-buffer">
+        </a>
+        <img src="img/banner2.png" class="rounded top-buffer">
+        <a href="http://www.naver.com">
+        <img src="img/banner3.png" class="rounded top-buffer">
+        </a>
+    </div>
+    
+    <div class="embed-responsive embed-responsive-16by9 top-buffer">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/JdHWf635x2c" frameborder="0" allowfullscreen></iframe>
+    </div>
+    
+</html>
+
+<script>
+var canvas = document.querySelector( 'canvas' ),
+ctx = canvas.getContext( '2d' ),
+mouseX = 0,
+mouseY = 0,
+width = 256,
+height = 256;
+
+// resize the canvas
+canvas.width = width;
+canvas.height = height;
+
+var img = new Image();
+img.setAttribute('crossOrigin', 'anonymous');
+img.onload = function() 
+{
+    updateCanvas(null);
+}
+img.src = "icon/icon1.png";
+
+function selectIcon(index)
+{
+    img.src = "icon/icon" + index + ".png";
+    updateCanvas(null);
+}
+
+function updateCanvas(event)
+{
+	var text = document.getElementById("iconText").value;
+    var x = canvas.width/2;
+    var y = canvas.height - 30;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(img, 0, 0);
+    ctx.font = "bold 25px supercell";
+    ctx.fillStyle = "white";
+    ctx.textAlign = "center";
+    ctx.fillText(text, x, y); 
+
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = 'black';
+    ctx.strokeText(text, x, y);
+}
+
+var link = document.getElementById("download");
+link.addEventListener('click', function(ev) {
+    link.href = canvas.toDataURL();
+    link.download = "icon.png";
+}, false);
+    
+</script>
