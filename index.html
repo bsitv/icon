@@ -14,7 +14,14 @@
 
 
 <html>
-    
+    <div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.9";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
     <div class="container-fluid text-center top-buffer">
         <canvas> </canvas>
     </div>
@@ -40,7 +47,10 @@
     <div class="container-fluid text-center top-buffer">
         <a href="#" class="btn btn-info" id ="download">다운로드</a>    
     </div>
-    
+   <div class="container-fluid text-center top-buffer">
+	<div class="fb-comments" data-href="https://bsitv.github.io/icon/index.html" data-numposts="5"></div>
+   </div>
+	<!--
      <div class="container-fluid text-center top-buffer">
         <a href="http://www.naver.com">
             <img src="img/banner1.png" class="rounded top-buffer">
@@ -54,6 +64,7 @@
     <div class="embed-responsive embed-responsive-16by9 top-buffer">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/JdHWf635x2c" frameborder="0" allowfullscreen></iframe>
     </div>
+-->
     
 </html>
 
