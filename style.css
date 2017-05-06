@@ -18,6 +18,13 @@
 .icon1{background-image:url(icon/icon1.png);}
 .icon2{background-image:url(icon/icon2.png);}
 .icon3{background-image:url(icon/icon3.png);}
+.icon4{background-image:url(icon/icon4.png);}
+.icon5{background-image:url(icon/icon5.png);}
+.icon6{background-image:url(icon/icon6.png);}
+.icon7{background-image:url(icon/icon7.png);}
+.icon8{background-image:url(icon/icon8.png);}
+.icon9{background-image:url(icon/icon9.png);}
+
 
 .cc-selector input:active +.drinkcard-cc{opacity: .9;}
 .cc-selector input:checked +.drinkcard-cc{
